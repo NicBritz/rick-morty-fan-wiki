@@ -1,6 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import CharacterList from "./components/CharacterList";
+import CharacterDetails from "./components/CharacterDetails";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
@@ -15,26 +19,16 @@ export default function App() {
     fetchCharacters();
   }, []);
 
-  console.log(data && data);
-
   return (
-    <div className="container">
-      <h1>Character Wiki</h1>
-      <div className="grid">
-        {data &&
-          data.map((char) => (
-            <div className="grid-item">
-              <div className="card">
-                <img
-                  className="image"
-                  src={char.image}
-                  alt={`${char.name} portrait`}
-                />
-                <div key={char.id}>{char.name}</div>
-              </div>
-            </div>
-          ))}
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <CharacterList data={data} />;
+        </Route>
+        <Route path="/details">
+          <CharacterDetails />
+        </Route>
+      </Switch>
+    </Router>
   );
 }

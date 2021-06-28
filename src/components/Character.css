@@ -1,0 +1,37 @@
+.container {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  max-width: 960px;
+  margin: auto auto;
+}
+
+.grid-item {
+  justify-self: center;
+  align-self: center;
+
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 6px;
+  padding: 0.1rem;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  border: 1px solid #5f5f5f;
+  box-shadow: 5px 5px 5px #5f5f5f;
+}
+
+.image {
+  border-radius: 6px;
+  max-width: 200px;
+}
